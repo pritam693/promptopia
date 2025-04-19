@@ -1,8 +1,54 @@
-import React from 'react'
+"use client"
+import {useState, useEffect} from 'react'
+import PromptCard from './PromptCard'
+
+const PromptCardList = ({data, handleTagClick}) => {
+    return (
+        <div className='mt-16 prompt_layout'>
+            {data.map((post) => (
+                <PromptCard
+                    key={post._id}
+                    post={post}
+                    handleTagClick={handleTagClick}
+                />
+            ))}
+        </div>
+    )
+}
+
 
 const Feed = () => {
+    const [searchText, setSearchText] = useState('')
+    const [posts, setPosts] = useState([])
+    const handleSearchChange = (e) => {
+        setSearchText(e.target.value)
+    }
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const response = await fetch('/api/prompt')
+            const data = await response.json()
+            setPosts(data)
+        }
+        fetchPosts()
+    }, [])
+
   return (
-    <div>Feed</div>
+    <section className='feed'>
+        <form className='relative w-full flex-center gap-3 mb-16'>
+            <input
+            type='text'
+            placeholder='Search for a tag or a username'
+            value={searchText}
+            onChange={handleSearchChange}
+            className='search_input peer' />
+            <button type='submit' className='absolute top-0 right-0 rounded-full bg-primary-orange px-4 py-2 text-white font-semibold'>Search</button>
+        </form>
+        <PromptCardList
+            data={posts}
+            handleTagClick={() => {}}
+         />
+    </section>
   )
 }
 
