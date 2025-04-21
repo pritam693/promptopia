@@ -67,13 +67,13 @@ const MyProfile = () => {
                     <div className="bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-lg text-center max-w-md w-full shadow-xl">
                         <p className="mb-4 font-satoshi font-semibold text-gray-900">Are you sure you want to delete this prompt?</p>
                         <button
-                            className="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 mr-2 text-gray-800"
+                            className="px-4 py-2 bg-gray-300 rounded-full hover:bg-gray-400 mr-2 text-gray-800"
                             onClick={cancelDelete}
                         >
                             Cancel
                         </button>
                         <button
-                            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                            className="px-4 py-2 rounded-full  bg-primary-orange text-white hover:bg-orange-600"
                             onClick={confirmDelete}
                         >
                             Confirm

@@ -2,12 +2,19 @@ import '@styles/globals.css'
 import Nav from '@components/Nav'
 import Provider from '@components/Provider'
 export const metadata = {
-    title: 'Promptopia',
+    title: 'Promptly',
     description: 'Discover & Share AI Prompts',
+    icons: {
+        icon: './logo.svg',
+    },
 }
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
+        <head>
+                {/* This will load the SVG as the favicon */}
+                <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+            </head>
             <body>
                 <Provider>
                     <div className='main'>
