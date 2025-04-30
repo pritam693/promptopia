@@ -5,7 +5,7 @@ export const metadata = {
     title: 'Promptly',
     description: 'Discover & Share AI Prompts',
     icons: {
-        icon: './logo.svg',
+        icon: '/favicon.ico',
     },
 }
 const RootLayout = ({ children }) => {
@@ -13,7 +13,7 @@ const RootLayout = ({ children }) => {
         <html lang="en">
         <head>
                 {/* This will load the SVG as the favicon */}
-                <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+                <link rel="icon" href="/favicon.ico" />
             </head>
             <body>
                 <Provider>

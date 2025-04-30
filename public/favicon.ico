@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <!-- Two Overlapping Circles -->
+  <circle cx="40" cy="50" r="25" fill="orange"/>
+  <circle cx="60" cy="50" r="25" fill="white"/>
+  
+  <!-- AI Text on top of the white circle -->
+  <text x="60" y="50" font-size="16" text-anchor="middle" fill="orange" font-family="Arial, sans-serif" font-weight="bold">AI</text>
+</svg>
