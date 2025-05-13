@@ -25,7 +25,7 @@ const Form = ({type ,post ,setPost ,submitting ,handleSubmit}) => {
                 <input
                     value={post.tag}
                     onChange={(e) => setPost({...post ,tag: e.target.value})}
-                    placeholder='#tag'
+                    placeholder='Add your tag here...'
                     required
                     className='form_input'
                 />
@@ -35,7 +35,7 @@ const Form = ({type ,post ,setPost ,submitting ,handleSubmit}) => {
                     Cancel
                 </Link>
                 <button type='submit' disabled={submitting} className='px-5 py-1.5 rounded-full text-sm bg-primary-orange text-white'>
-                    {submitting ? `${type}...` : type}
+                    {submitting ? `${type}ing...` : type}
                 </button>
             </div>
         </form>

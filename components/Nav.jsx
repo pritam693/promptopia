@@ -4,12 +4,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 import { useState, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 const Nav = () => {
     const { data: session } = useSession()
     const [providers, setProviders] = useState(null)
     const [toggleDropdown, setToggleDropdown] = useState(false)
     const dropdownRef = useRef(null)
+    const pathname = usePathname()
 
     // fetch auth providers
     useEffect(() => {
@@ -36,6 +38,8 @@ const Nav = () => {
         }
     }, [toggleDropdown])
 
+    const isProfilePage = pathname.startsWith('/profile');
+
     return (
         <nav className="flex-between w-full mb-16 pt-3">
             <Link href="/" className="flex gap-2 flex-center">
@@ -51,6 +55,12 @@ const Nav = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden sm:flex">
+                {/* only show this when on /profile */}
+                {isProfilePage && (
+                    <Link href="/" className="outline_btn mr-4">
+                        Home
+                    </Link>
+                )}
                 {session?.user ? (
                     <>
                         <Link href="/create-prompt" className="black_btn mr-4">
@@ -108,6 +118,11 @@ const Nav = () => {
                                 >
                                     My profile
                                 </Link>
+                                {isProfilePage && (
+                                    <Link href="/" className="dropdown_link" onClick={() => setToggleDropdown(false)}>
+                                        Home
+                                    </Link>
+                                )}
                                 <Link
                                     href="/create-prompt"
                                     className="dropdown_link"

@@ -50,7 +50,7 @@ const EditPromptContent = () => {
     }
     return (
         <Form
-            type='Edit'
+            type='Update'
             post={post}
             setPost={setPost}
             submitting={submitting}
